@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.deleteIcon{
+    color: grey;
+}
+.deleteIcon:hover{
+    color: rgba(218, 27, 27, 0.759);
+}
+
+
+.editIcon{
+    color: grey;
+}
+.editIcon:hover{
+    color: blue;
+}
+
+.link{
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
