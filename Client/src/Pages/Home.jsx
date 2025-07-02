@@ -15,7 +15,6 @@ import {
   LogoDiv,
   LogoImage,
 } from "../Styles/HomeStyles";
-// import todos from "../Data";
 import NoData from "../assets/notFound.svg";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
@@ -38,6 +37,16 @@ const HomeComp = () => {
     }
   };
 
+  const hendleDelete =  async (id)=>{
+    try {
+      await axios.delete(`http://localhost:4000/api-data/delete-item/${id}`)
+      alert("Product deleted")
+      fetchProducts()
+    } catch (error) {
+      console.error("Error deleting data");
+    }
+  }
+
   console.log(data);
   return (
     <>
@@ -55,10 +64,10 @@ const HomeComp = () => {
           <ChildScrollDiv>
             {data.map((task, index) => (
               <div key={task._id}>
-                <Link
+                {/* <Link
                   className="link"
                   to={`/detailed-page/${task.id}`}
-                >
+                > */}
                   <ChildDiv>
                     <ChildInsideDiv>
                       <h1>{index + 1}</h1>
@@ -72,10 +81,11 @@ const HomeComp = () => {
                       <DeleteOutlineOutlinedIcon
                         className="deleteIcon"
                         fontSize="medium"
+                        onClick={()=>hendleDelete(task._id)}
                       />
                     </ChildInsideDiv>
                   </ChildDiv>
-                </Link>
+                {/* </Link> */}
                 <LineHr />
               </div>
             ))}
